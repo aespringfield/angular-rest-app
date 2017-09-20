@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../shared/items.service';
 import { Item } from '../shared/item.model';
+import { WidgetsComponent } from '../widgets/widgets.component';
 
 @Component({
   selector: 'app-home',
