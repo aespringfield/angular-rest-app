@@ -1,55 +1,41 @@
-import { Component } from '@angular/core';
-import { Widget } from '../shared';
+import { Component, OnInit } from '@angular/core';
+import { WidgetsService, Widget } from '../shared';
+// import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-widgets',
     templateUrl: './widgets.component.html',
     styleUrls: ['./widgets.component.css']
 })
-export class WidgetsComponent {
-    selectedWidget: Widget;
+export class WidgetsComponent implements OnInit {
+    selectedWidget: Widget = null;
+    widgets: Widget[];
 
-    constructor() {}
+    constructor(private widgetsService: WidgetsService) {}
 
-    widgets = [
-        {
-        id: 1,
-        name: 'Red Widget',
-        description: 'This is a red widget'
-        },
-        {
-        id: 2,
-        name: 'Orange Widget',
-        description: 'This is an orange widget'
-        },
-        {
-        id: 3,
-        name: 'Yellow Widget',
-        description: 'This is a yellow widget'
-        },
-        {
-        id: 4,
-        name: 'Green Widget',
-        description: 'This is a green widget'
-        },
-        {
-        id: 5,
-        name: 'Blue Widget',
-        description: 'This is a blue widget'
-        },
-        {
-        id: 6,
-        name: 'Indigo Widget',
-        description: 'This is a indigo widget'
-        },
-        {
-        id: 7,
-        name: 'Violet Widget',
-        description: 'This is a violet widget'
-        }
-    ]
+    ngOnInit() {
+        this.widgets = this.widgetsService.getWidgets();
+        this.reset();
+    }
 
-    selectWidget(widget) {
+    reset(): void {
+        this.selectedWidget = {  id: null, name: '', description: ''}
+    }
+
+    select(widget) {
         this.selectedWidget = widget;
+    }
+
+    cancel(): void {
+        this.reset();
+    }
+
+    delete(widget) {
+        this.widgets = this.widgets.filter(el => el.id !== widget.id);
+    }
+
+    save(widget: Widget): void {
+        console.log('saving widget', widget);
+        this.reset();
     }
 }

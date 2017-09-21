@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 
 import { ItemsService } from './shared';
+import { WidgetsService } from './shared';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
@@ -16,6 +17,8 @@ import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 import { HomeComponent } from './home/home.component';
 import { GizmoComponent } from './gizmo/gizmo.component';
 import { WidgetsComponent } from './widgets/widgets.component';
+import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.component';
+import { WidgetsDetailsComponent } from './widgets/widgets-details/widgets-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { WidgetsComponent } from './widgets/widgets.component';
     ItemsListComponent,
     ItemDetailComponent,
     GizmoComponent,
-    WidgetsComponent
+    WidgetsComponent,
+    WidgetsListComponent,
+    WidgetsDetailsComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -35,7 +40,7 @@ import { WidgetsComponent } from './widgets/widgets.component';
     AppRoutingModule,
     AppMaterialModule
   ],
-  providers: [ItemsService],
+  providers: [ItemsService, WidgetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
