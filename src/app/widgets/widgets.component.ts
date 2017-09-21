@@ -11,7 +11,8 @@ export class WidgetsComponent implements OnInit {
     selectedWidget: Widget = null;
     widgets: Widget[];
 
-    constructor(private widgetsService: WidgetsService) {}
+    constructor(private widgetsService: WidgetsService) {
+    }
 
     ngOnInit() {
         this.widgets = this.widgetsService.getWidgets();
@@ -36,6 +37,11 @@ export class WidgetsComponent implements OnInit {
 
     save(widget: Widget): void {
         console.log('saving widget', widget);
+        if (this.selectedWidget.id) {
+            this.widgets[this.widgets.findIndex(el => el.id === widget.id)] = widget;
+        } else {
+            this.widgets.push(widget);
+        }
         this.reset();
     }
 }

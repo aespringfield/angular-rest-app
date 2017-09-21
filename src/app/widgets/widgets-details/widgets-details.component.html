@@ -10,23 +10,23 @@
       <form #widgetForm="ngForm" >
         <fieldset ngModelGroup="widget">
           <md-card-content>
-            <h3 md-line *ngIf="widget; else noWidget">
+            <h3 md-line *ngIf="selectedWidget.name; else noWidget">
               SELECTED WIDGET: {{widget?.name}}
             </h3>
 
             <hr>
-            <input md-line [(ngModel)]="widget.name"
-              name="name" required />
-            <input md-line [(ngModel)]="widget.description"
-              name="description" required />
+            <input md-line [(ngModel)]="selectedWidget.name"
+              name="name" type="text" required />
+            <input md-line [(ngModel)]="selectedWidget.description"
+              name="description" type="text" required />
           </md-card-content>
           <ng-template #noWidget>
             NO WIDGET SELECTED    
           </ng-template>
         </fieldset>
         <md-card-actions>
-          <button type="submit" md-button disabled=!widgetForm.valid>Save</button>
-          <button type="button" md-button (click)="cancel()">Cancel</button>
+          <button type="submit" md-button [disabled]="!widgetForm.valid" (click)="saved.emit(selectedWidget)">Save</button>
+          <button type="button" md-button (click)="canceled.emit()">Cancel</button>
         </md-card-actions>
       </form>
     </md-card>
