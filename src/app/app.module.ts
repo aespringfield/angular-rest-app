@@ -19,6 +19,7 @@ import { GizmoComponent } from './gizmo/gizmo.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.component';
 import { WidgetsDetailsComponent } from './widgets/widgets-details/widgets-details.component';
+import { ItemsSearchComponent } from './items-search/items-search.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { WidgetsDetailsComponent } from './widgets/widgets-details/widgets-detai
     GizmoComponent,
     WidgetsComponent,
     WidgetsListComponent,
-    WidgetsDetailsComponent
+    WidgetsDetailsComponent,
+    ItemsSearchComponent
   ],
   imports: [
     BrowserAnimationsModule,
