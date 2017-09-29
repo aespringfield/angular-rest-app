@@ -1,0 +1,13 @@
+<form [formGroup]="login" (submit)="logUserIn(login)">
+    <md-input-container>
+        <input mdInput type="text" formControlName="userName" placeholder="User name">
+    </md-input-container>
+    <md-input-container>
+        <input mdInput type="password" formControlName="password" placeholder="Password">
+    </md-input-container>
+    <!-- <md-form-actions> -->
+        <button type="submit">Submit</button>
+        <button (click)="reset()">Cancel</button>
+    <!-- </md-form-actions> -->
+
+</form>

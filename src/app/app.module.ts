@@ -19,6 +19,8 @@ import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.compon
 import { WidgetDetailComponent } from './widgets/widget-detail/widget-detail.component';
 import { HomeComponent } from './home/home.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
+import { StatusComponent } from './home/status/status.component';
+import { LoginComponent } from './home/login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
     WidgetsComponent,
     WidgetsListComponent,
     WidgetDetailComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    StatusComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,

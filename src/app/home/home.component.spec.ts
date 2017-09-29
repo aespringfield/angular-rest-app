@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
+import { AppMaterialModule } from '../app-material.module';
 
 import { HomeComponent } from './home.component';
 
@@ -10,8 +11,8 @@ describe('HomeComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      imports: [],
-      declarations: [HomeComponent]
+      imports: [AppMaterialModule],
+      declarations: [HomeComponent],
     }).createComponent(HomeComponent);
 
     component = fixture.componentInstance;

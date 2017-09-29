@@ -5,6 +5,8 @@
   </div>
 
   <div class="col-50">
+    <app-status [currentStatus]="currentStatus" (logout)="logout($event)"></app-status>
+    <app-login></app-login>
     <app-newsletter></app-newsletter>
     <app-widgets-list [widgets]="widgets" [readonly]="true"></app-widgets-list>
   </div>

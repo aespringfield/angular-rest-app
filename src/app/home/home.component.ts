@@ -13,6 +13,7 @@ import { Widget } from '../shared/widget.model';
 export class HomeComponent implements OnInit {
   items: Item[];
   widgets: Widget[];
+  currentStatus;
 
   constructor(private itemsService: ItemsService,
               private widgetsService: WidgetsService) {
@@ -35,5 +36,10 @@ export class HomeComponent implements OnInit {
 
   handleResults(items) {
     this.items = items;
+  }
+
+  logout() {
+    this.currentStatus = "logged out";
+    console.log('logged out');
   }
 }
