@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WidgetsListComponent } from './widgets-list.component';
+import { GizmoComponent } from './gizmo.component';
 
-describe('WidgetsListComponent', () => {
-  let component: WidgetsListComponent;
-  let fixture: ComponentFixture<WidgetsListComponent>;
+describe('GizmoComponent', () => {
+  let component: GizmoComponent;
+  let fixture: ComponentFixture<GizmoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WidgetsListComponent ]
+      declarations: [ GizmoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WidgetsListComponent);
+    fixture = TestBed.createComponent(GizmoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

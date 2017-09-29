@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Widget } from '../../shared';
 
 @Component({
@@ -6,9 +6,12 @@ import { Widget } from '../../shared';
   templateUrl: './widgets-list.component.html',
   styleUrls: ['./widgets-list.component.css']
 })
-export class WidgetsListComponent {
+export class WidgetsListComponent implements OnInit {
   @Input() widgets: Widget[];
-  @Input() readonly = false;
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
+  constructor() { }
+
+  ngOnInit() {
+  }
 }

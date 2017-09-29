@@ -1,11 +1,12 @@
 <div class="container">
-  <app-widgets-list class="col-50" [widgets]="widgets"
-                  (selected)="selectWidget($event)"
-                  (deleted)="deleteWidget($event)">
-  </app-widgets-list>
+    <!-- WIDGETS LIST -->
+    <app-widgets-list [widgets]="widgets" 
+    (selected)="select($event)"
+    (deleted)="delete($event)">
+    </app-widgets-list>
 
-  <app-widget-detail class="col-50" [widget]="currentWidget"
-                   (saved)="saveWidget($event)"
-                   (cancelled)="cancel($event)">
-  </app-widget-detail>
-</div>
+    <!-- WIDGET DETAILS -->
+    <app-widgets-details [widget]="selectedWidget" 
+    (canceled)="cancel($event)"
+    (saved)="save($event)"></app-widgets-details>
+  </div>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../shared/items.service';
-import { WidgetsService } from '../shared/widgets.service';
 import { Item } from '../shared/item.model';
-import { Widget } from '../shared/widget.model';
+import { WidgetsComponent } from '../widgets/widgets.component';
 
 @Component({
   selector: 'app-home',
@@ -12,22 +11,23 @@ import { Widget } from '../shared/widget.model';
 })
 export class HomeComponent implements OnInit {
   items: Item[];
+<<<<<<< HEAD
   widgets: Widget[];
   currentStatus;
+=======
+>>>>>>> 00-start
 
-  constructor(private itemsService: ItemsService,
-              private widgetsService: WidgetsService) {
-  }
+  constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
     this.getItems();
-    this.getWidgets();
   }
 
   getItems() {
     this.itemsService.all()
       .subscribe(items => this.items = items);
   }
+<<<<<<< HEAD
 
   getWidgets() {
     this.widgetsService.all()
@@ -42,4 +42,6 @@ export class HomeComponent implements OnInit {
     this.currentStatus = "logged out";
     console.log('logged out');
   }
+=======
+>>>>>>> 00-start
 }

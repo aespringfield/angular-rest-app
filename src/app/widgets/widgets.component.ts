@@ -1,69 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { WidgetsService, Widget } from '../shared';
-import { Router, ActivatedRoute } from '@angular/router';
+// import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-widgets',
-  templateUrl: './widgets.component.html',
-  styleUrls: ['./widgets.component.css']
+    selector: 'app-widgets',
+    templateUrl: './widgets.component.html',
+    styleUrls: ['./widgets.component.css']
 })
 export class WidgetsComponent implements OnInit {
-  widgets: Widget[];
-  currentWidget: Widget;
+    selectedWidget: Widget = null;
+    widgets: Widget[];
 
-  constructor(private widgetsService: WidgetsService) { }
-
-  ngOnInit() {
-    this.getWidgets();
-    this.resetCurrentWidget();
-  }
-
-  resetCurrentWidget() {
-    this.currentWidget = { id: null, name: '', description: '' };
-  }
-
-  selectWidget(widget) {
-    this.currentWidget = widget;
-  }
-
-  cancel(widget) {
-    this.resetCurrentWidget();
-  }
-
-  getWidgets() {
-    this.widgetsService.all()
-      .subscribe(widgets => this.widgets = widgets);
-  }
-
-  saveWidget(widget) {
-    if (!widget.id) {
-      this.createWidget(widget);
-    } else {
-      this.updateWidget(widget);
+    constructor(private widgetsService: WidgetsService) {
     }
-  }
 
-  createWidget(widget) {
-    this.widgetsService.create(widget)
-      .subscribe(response => {
-        this.getWidgets();
-        this.resetCurrentWidget();
-      });
-  }
+    ngOnInit() {
+        this.widgets = this.widgetsService.getWidgets();
+        this.reset();
+    }
 
-  updateWidget(widget) {
-    this.widgetsService.update(widget)
-      .subscribe(response => {
-        this.getWidgets();
-        this.resetCurrentWidget();
-      });
-  }
+    reset(): void {
+        this.selectedWidget = {  id: null, name: '', description: ''}
+    }
 
-  deleteWidget(widget) {
-    this.widgetsService.delete(widget)
-      .subscribe(response => {
-        this.getWidgets();
-        this.resetCurrentWidget();
-      });
-  }
+    select(widget) {
+        this.selectedWidget = widget;
+    }
+
+    cancel(): void {
+        this.reset();
+    }
+
+    delete(widget) {
+        this.widgets = this.widgets.filter(el => el.id !== widget.id);
+    }
+
+    save(widget: Widget): void {
+        console.log('saving widget', widget);
+        if (this.selectedWidget.id) {
+            this.widgets[this.widgets.findIndex(el => el.id === widget.id)] = widget;
+        } else {
+            this.widgets.push(widget);
+        }
+        this.reset();
+    }
 }

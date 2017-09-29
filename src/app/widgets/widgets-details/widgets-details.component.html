@@ -1,0 +1,33 @@
+<div class="col-50">
+    <md-card>
+      <md-card-header>
+        <md-card-title>
+          <h1>
+            Select a Widget
+          </h1>
+        </md-card-title>
+      </md-card-header>
+      <form #widgetForm="ngForm" >
+        <fieldset ngModelGroup="widget">
+          <md-card-content>
+            <h3 md-line *ngIf="selectedWidget.name; else noWidget">
+              SELECTED WIDGET: {{widget?.name}}
+            </h3>
+
+            <hr>
+            <input md-line [(ngModel)]="selectedWidget.name"
+              name="name" type="text" required />
+            <input md-line [(ngModel)]="selectedWidget.description"
+              name="description" type="text" required />
+          </md-card-content>
+          <ng-template #noWidget>
+            NO WIDGET SELECTED    
+          </ng-template>
+        </fieldset>
+        <md-card-actions>
+          <button type="submit" md-button [disabled]="!widgetForm.valid" (click)="saved.emit(selectedWidget)">Save</button>
+          <button type="button" md-button (click)="canceled.emit()">Cancel</button>
+        </md-card-actions>
+      </form>
+    </md-card>
+  </div>
