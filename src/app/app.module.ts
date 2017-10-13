@@ -18,16 +18,11 @@ import { HomeComponent } from './home/home.component';
 import { GizmoComponent } from './gizmo/gizmo.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.component';
-<<<<<<< HEAD
 import { WidgetDetailComponent } from './widgets/widget-detail/widget-detail.component';
 import { HomeComponent } from './home/home.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { StatusComponent } from './home/status/status.component';
 import { LoginComponent } from './home/login/login.component';
-=======
-import { WidgetsDetailsComponent } from './widgets/widgets-details/widgets-details.component';
-import { ItemsSearchComponent } from './items-search/items-search.component';
->>>>>>> 00-start
 
 @NgModule({
   declarations: [
@@ -39,15 +34,10 @@ import { ItemsSearchComponent } from './items-search/items-search.component';
     GizmoComponent,
     WidgetsComponent,
     WidgetsListComponent,
-<<<<<<< HEAD
     WidgetDetailComponent,
     NewsletterComponent,
     StatusComponent,
     LoginComponent
-=======
-    WidgetsDetailsComponent,
-    ItemsSearchComponent
->>>>>>> 00-start
   ],
   imports: [
     BrowserAnimationsModule,
